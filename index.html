@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ата-аналар сауалнамасы</title>
+
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background:#f3f6fb;
+      margin:0;
+      padding:40px;
+    }
+
+    .container{
+      max-width:700px;
+      margin:auto;
+      background:white;
+      padding:30px;
+      border-radius:15px;
+      box-shadow:0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h1{
+      text-align:center;
+      color:#2c3e50;
+    }
+
+    .question{
+      margin-top:25px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:10px;
+      font-weight:bold;
+      color:#333;
+    }
+
+    input, textarea, select{
+      width:100%;
+      padding:12px;
+      border:1px solid #ccc;
+      border-radius:10px;
+      font-size:16px;
+    }
+
+    textarea{
+      resize:vertical;
+      min-height:100px;
+    }
+
+    button{
+      margin-top:30px;
+      width:100%;
+      padding:14px;
+      background:#4a90e2;
+      color:white;
+      border:none;
+      border-radius:10px;
+      font-size:18px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#357bd8;
+    }
+
+    .result{
+      margin-top:20px;
+      padding:15px;
+      background:#eaf7ea;
+      border-radius:10px;
+      display:none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Ата-аналар сауалнамасы</h1>
+
+    <form id="surveyForm">
+
+      <div class="question">
+        <label>
+          1. Балаңыз күніне неше сағат телефон қолданады?
+        </label>
+
+        <select id="q1">
+          <option>1 сағаттан аз</option>
+          <option>1-2 сағат</option>
+          <option>3-4 сағат</option>
+          <option>5 сағаттан көп</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label>
+          2. Үйде гаджет ережесі бар ма?
+        </label>
+
+        <select id="q2">
+          <option>Иә</option>
+          <option>Жоқ</option>
+          <option>Жартылай</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label>
+          3. Бүгінгі жиналыстан қандай ой түйдіңіз?
+        </label>
+
+        <textarea id="q3"
+          placeholder="Жауабыңызды жазыңыз..."></textarea>
+      </div>
+
+      <button type="submit">Жіберу</button>
+    </form>
+
+    <div class="result" id="result">
+      Сауалнамаңыз сәтті жіберілді!
+    </div>
+  </div>
+
+  <script>
+    const form = document.getElementById("surveyForm");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", function(event){
+      event.preventDefault();
+
+      const answer1 = document.getElementById("q1").value;
+      const answer2 = document.getElementById("q2").value;
+      const answer3 = document.getElementById("q3").value;
+
+      console.log("1-сұрақ:", answer1);
+      console.log("2-сұрақ:", answer2);
+      console.log("3-сұрақ:", answer3);
+
+      result.style.display = "block";
+
+      form.reset();
+    });
+  </script>
+
+</body>
+</html>
